@@ -13,7 +13,6 @@ public class EventListener implements Listener {
     /**
      * Deze functie wordt getriggered wanneer een vanished speler joint. Deze speler wordt dan verborgen van de andere spelers.
      *
-     * @param event
      */
     @EventHandler
     public void onVanishedPlayerJoin(PlayerJoinEvent event)
@@ -30,7 +29,6 @@ public class EventListener implements Listener {
     /**
      * Deze functie wordt getriggered wanneer een gewone speler joint. Alle vanished players worden dan verborgen van deze speler
      *
-     * @param event
      */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event)

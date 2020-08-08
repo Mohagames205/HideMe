@@ -1,41 +1,46 @@
 package me.mohamedelyousfi.hideme.commands;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import me.mohamedelyousfi.hideme.Hideme;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class VanishCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        Hideme hideMe = Hideme.getInstance();
+        FileConfiguration config = hideMe.getConfig();
+
+        String messagePrefix = config.getString("messages.prefix");
+        String vanishMessage = config.getString("messages.vanish");
+        String unvanishMessage = config.getString("messages.unvanish");
+        String isConsoleMessage = config.getString("messages.isconsole");
+
         // Als de commandsender geen Player is dan annuleren we alles.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage(Hideme.prefix + "Je kan deze command niet uitvoeren vanuit de console.");
+            sender.sendMessage(messagePrefix + isConsoleMessage);
             return false;
         }
 
         // De CommandSender casten naar een Player object
         Player player = (Player) sender;
 
-        Hideme hideMe = Hideme.getInstance();
-
         // Als de speler niet is gevanished dan moeten we de speler vanishen
         if(!hideMe.isVanished(player))
         {
             hideMe.vanishPlayer(player);
-            player.sendMessage(Hideme.prefix + "§aU bent nu gevanished");
+            player.sendMessage(messagePrefix + vanishMessage);
             return true;
         }
 
         // Als de speler wel gevanished is, dan moet die uit vanish gehaald worden.
         hideMe.unVanishPlayer(player);
-        player.sendMessage(Hideme.prefix + "§cU bent niet meer gevanished.");
+        player.sendMessage(messagePrefix + unvanishMessage);
 
         return true;
     }

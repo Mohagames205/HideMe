@@ -1,0 +1,13 @@
+messages:
+
+  # Prefix die voor elk bericht wordt getoond
+  prefix: "§f[§cHide§4Me§f] "
+
+  # Bericht dat verzeonden moet worden wanneer de speler zichzelf vanished
+  vanish: §aU bent succesvol gevanished
+
+  # Bericht dat verzonden moet worden wanneer de speler uit vanish gaat
+  unvanish: §cU staat niet meer in vanish
+
+  #Bericht dat verzonden moet worden als de command wordt uitgevoerd vanuit de console
+  isconsole: §cJe kan deze command niet uitvoeren vanuit de console
