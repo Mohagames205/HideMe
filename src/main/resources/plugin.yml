@@ -1,0 +1,11 @@
+name: Hideme
+version: ${project.version}
+main: me.mohamedelyousfi.hideme.Hideme
+api-version: 1.16.1
+authors: [mohagames]
+description: Hide yourself like never before
+website: mohamedelyousfi.me
+
+commands:
+  vanish:
+    description: Woosh, verdwijn
