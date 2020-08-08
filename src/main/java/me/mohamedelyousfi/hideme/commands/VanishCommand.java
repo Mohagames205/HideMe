@@ -21,8 +21,7 @@ public class VanishCommand implements CommandExecutor {
         String isConsoleMessage = config.getString("messages.isconsole");
 
         // Als de commandsender geen Player is dan annuleren we alles.
-        if(!(sender instanceof Player))
-        {
+        if (!(sender instanceof Player)) {
             sender.sendMessage(messagePrefix + isConsoleMessage);
             return false;
         }
@@ -31,8 +30,7 @@ public class VanishCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         // Als de speler niet is gevanished dan moeten we de speler vanishen
-        if(!hideMe.isVanished(player))
-        {
+        if (!hideMe.isVanished(player)) {
             hideMe.vanishPlayer(player);
             player.sendMessage(messagePrefix + vanishMessage);
             return true;

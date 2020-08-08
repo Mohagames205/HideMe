@@ -43,11 +43,9 @@ public final class Hideme extends JavaPlugin {
      *
      * @param player Player om te verbergen
      */
-    public void vanishPlayer(Player player)
-    {
+    public void vanishPlayer(Player player) {
         // Speler toevoegen aan vanishedPlayers lijst als die er nog niet in zit
-        if(!isVanished(player))
-        {
+        if (!isVanished(player)) {
             vanishedPlayers.add(player.getUniqueId());
         }
 
@@ -59,8 +57,7 @@ public final class Hideme extends JavaPlugin {
         for (Player playerToHideFrom : getServer().getOnlinePlayers()) {
 
             // Als de speler in de loop de hideme.see permission heeft
-            if(!playerToHideFrom.hasPermission("hideme.see"))
-            {
+            if (!playerToHideFrom.hasPermission("hideme.see")) {
                 playerToHideFrom.hidePlayer(this, player);
             }
         }
@@ -71,8 +68,7 @@ public final class Hideme extends JavaPlugin {
      *
      * @param player Player om te verhullen
      */
-    public void unVanishPlayer(Player player)
-    {
+    public void unVanishPlayer(Player player) {
         // Speler verwijderen aan vanishedPlayers lijst
         vanishedPlayers.remove(player.getUniqueId());
 
@@ -80,7 +76,7 @@ public final class Hideme extends JavaPlugin {
         bossBar.removePlayer(player);
 
         // Loopen door elke speler om de gevanishde speler te verhullen
-        for (Player onlinePlayer: getServer().getOnlinePlayers()) {
+        for (Player onlinePlayer : getServer().getOnlinePlayers()) {
             onlinePlayer.showPlayer(this, player);
         }
     }
@@ -91,8 +87,7 @@ public final class Hideme extends JavaPlugin {
      * @param player De speler bij wie gecheckt moet worden als die in de vanish lijst zit
      * @return true als de speler in de vanished lijst zit is en false als de speler niet in de lijst zit
      */
-    public boolean isVanished(Player player)
-    {
+    public boolean isVanished(Player player) {
         return vanishedPlayers.contains(player.getUniqueId());
     }
 
@@ -101,8 +96,7 @@ public final class Hideme extends JavaPlugin {
      *
      * @return een instance van de Main class
      */
-    public static Hideme getInstance()
-    {
+    public static Hideme getInstance() {
         return hideMe;
     }
 
