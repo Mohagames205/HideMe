@@ -13,25 +13,29 @@ public class VanishCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // Als de commandsender geen Player is dan annuleren we alles.
         if(!(sender instanceof Player))
         {
-            sender.sendMessage("Je kan deze command niet uitvoeren vanuit de console.");
+            sender.sendMessage(Hideme.prefix + "Je kan deze command niet uitvoeren vanuit de console.");
             return false;
         }
 
+        // De CommandSender casten naar een Player object
         Player player = (Player) sender;
 
         Hideme hideMe = Hideme.getInstance();
 
+        // Als de speler niet is gevanished dan moeten we de speler vanishen
         if(!hideMe.isVanished(player))
         {
             hideMe.vanishPlayer(player);
-            player.sendMessage("§aU bent nu gevanished");
+            player.sendMessage(Hideme.prefix + "§aU bent nu gevanished");
             return true;
         }
 
+        // Als de speler wel gevanished is, dan moet die uit vanish gehaald worden.
         hideMe.unVanishPlayer(player);
-        player.sendMessage("§cU bent niet meer gevanished.");
+        player.sendMessage(Hideme.prefix + "§cU bent niet meer gevanished.");
 
         return true;
     }

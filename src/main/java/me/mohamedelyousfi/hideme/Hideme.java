@@ -20,6 +20,7 @@ public final class Hideme extends JavaPlugin {
     protected static Hideme hideMe;
     public List<UUID> vanishedPlayers = new ArrayList<>();
     public BossBar bossBar;
+    public final static String prefix = "§f[§cHide§4Me§f] ";
 
 
     @Override
