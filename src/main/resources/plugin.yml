@@ -9,3 +9,12 @@ website: mohamedelyousfi.me
 commands:
   vanish:
     description: Verberg jezelf van de andere spelers
+    permission: hideme.vanish
+
+permissions:
+  hideme.bypass:
+    default: op
+    description: Deze permission zorgt ervoor dat je gevanishde spelers kan zien
+  hideme.vanish:
+    default: op
+    description: Permission om de vanish command te gebruiken

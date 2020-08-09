@@ -56,7 +56,7 @@ public final class Hideme extends JavaPlugin {
         // Loopen door elke speler om de gegeven speler te verbergen van hen.
         for (Player playerToHideFrom : getServer().getOnlinePlayers()) {
 
-            // Als de speler in de loop de hideme.see permission heeft
+            // Als de speler in de loop niet de hideme.see perm heeft dan mogen we de speler verbergen.
             if (!playerToHideFrom.hasPermission("hideme.see")) {
                 playerToHideFrom.hidePlayer(this, player);
             }
